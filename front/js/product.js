@@ -77,8 +77,6 @@ function afficher() {
                         alt: product.altTxt
                     }
 
-                    console.log(productOptions)
-
                         let productInLocalStorage = JSON.parse(localStorage.getItem("Product"));
                         if (productInLocalStorage === null) {
                             productInLocalStorage= [];
@@ -97,6 +95,8 @@ function afficher() {
                     
                             } else {
                                 found.quantite += productOptions.quantite;
+                                found.quantite = parseInt(found.quantite)
+                                console.log(typeof(found.quantite))
                                 localStorage.setItem("Product", JSON.stringify(productInLocalStorage));
                             }
                     }

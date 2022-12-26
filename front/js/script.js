@@ -1,4 +1,4 @@
-//afficher les produits
+    // Récupération des données produits depuis l'API
 
 function afficher() {
     fetch("http://localhost:3000/api/products")
@@ -9,6 +9,8 @@ function afficher() {
     }
 })
 .then(function(value) {
+
+    // Affichage des données de chaque produit grâce au DOM
 
     value.forEach(element => {
 
