@@ -165,14 +165,15 @@ function modifyQuantity() {
             const modify = productInLocalStorage.find(element => element.id == productId && element.couleur == productColor);
 
             if (input.value <= 100) {
-                modify.quantite = input.value;
+                
+            modify.quantite = parseInt(input.value);
             productInlocalStorage = modify;
             localStorage.setItem("Product", JSON.stringify(productInLocalStorage));
             location.reload();
             alert("La quantité a bien été mise à jour");
             
             }   else {
-                alert("La quantité de ne peut pas dépasser 100 articles")
+                alert("La quantité ne peut pas dépasser 100 articles")
                 }
             
         })
@@ -187,7 +188,8 @@ function deleteProduct() {
         button.addEventListener("click", e => {
             let productId = e.target.getAttribute("data-ID");
             let productColor = e.target.getAttribute("data-color");
-            const searchDeleteItem = productInLocalStorage.find(element => element.id == productId && element.couleur == productColor);
+            const searchDeleteItem = productInLocalStorage.find(element => element.id == productId
+                && element.couleur == productColor);
             productInLocalStorage = productInLocalStorage.filter(item => item != searchDeleteItem);
             localStorage.setItem("Product", JSON.stringify(productInLocalStorage));
             alert("Le produit a bien été supprimé du panier")
@@ -234,7 +236,7 @@ function deleteProduct() {
         return true;
       } else {
         document.querySelector("#firstNameErrorMsg").textContent =
-          "Prénom invalide";
+          "Prénom invalide, merci de renseigner un pénom ayant pour maximum 20 caractères";
         return false;
       }
     }
@@ -248,7 +250,7 @@ function deleteProduct() {
         return true;
       } else {
         document.querySelector("#lastNameErrorMsg").textContent =
-          "Nom invalide";
+          "Nom invalide, merci de renseigner un nom ayant pour maximum 20 caractères";
         return false;
       }
     }
@@ -262,7 +264,7 @@ function deleteProduct() {
         return true;
       } else {
         document.querySelector("#addressErrorMsg").textContent =
-          "Adresse invalide";
+          "Adresse invalide, merci de renseigner une adresse ayant pour maximum 50 caractères";
         return false;
       }
     }
@@ -276,7 +278,7 @@ function deleteProduct() {
         return true;
       } else {
         document.querySelector("#cityErrorMsg").textContent =
-          "Ville invalide";
+          "Ville invalide, merci de renseigner une ville ayant pour maximum 20 caractères";
         return false;
       }
     }

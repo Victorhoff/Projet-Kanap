@@ -10,6 +10,8 @@ function afficher() {
 })
 .then(function(value) {
 
+    console.log(value)
+
     // Affichage des données de chaque produit grâce au DOM
 
     value.forEach(element => {
